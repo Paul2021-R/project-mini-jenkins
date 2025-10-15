@@ -1,0 +1,5 @@
+# 출처: https://plugins.jenkins.io/ 에서 Plugin ID 확인 가능
+configuration-as-code
+git
+workflow-aggregator
+blueocean
