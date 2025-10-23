@@ -10,6 +10,9 @@ COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 # plugin 설치 
 RUN jenkins-plugin-cli --plugin-file /usr/share/jenkins/ref/plugins.txt
 
+# ssh-client 패키지 설치 
+RUN apt-get update && apt-get install -y openssh-client
+
 # casc.yaml 파일을 참조(ref) 디렉토리로 복사
 COPY casc.yaml /usr/share/jenkins/ref/casc.yaml
 
