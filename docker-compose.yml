@@ -7,6 +7,11 @@ services:
       - "12345:8080"
     volumes:
       - ./jenkins_home:/var/jenkins_home
+      # Docker CLI 사용을 위해 호스트로 마운트
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+      - /usr/bin/docker-compose:/usr/bin/docker-compose
+    # user: root
     environment:
       - CASC_JENKINS_CONFIG=/var/jenkins_home/casc.yaml
     entrypoint: >
