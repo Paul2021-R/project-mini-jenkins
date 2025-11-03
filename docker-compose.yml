@@ -3,8 +3,8 @@ services:
     build:
       context: jenkins
     container_name: jenkins-server
-    ports:
-      - "12345:8080"
+    # ports:
+    #   - "12345:8080"
     volumes:
       - ./jenkins_home:/var/jenkins_home
       # Docker CLI 사용을 위해 호스트로 마운트
@@ -19,3 +19,9 @@ services:
         cp /usr/share/jenkins/ref/casc.yaml /var/jenkins_home/casc.yaml &&
         /usr/bin/tini -- /usr/local/bin/jenkins.sh
       "
+    networks:
+      - my-central-proxy-network
+
+networks:
+  my-central-proxy-network:
+    external: true

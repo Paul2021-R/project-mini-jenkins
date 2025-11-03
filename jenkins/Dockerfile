@@ -29,7 +29,8 @@ RUN apt-get update && apt-get install -y docker-ce-cli
 RUN rm -rf /var/lib/apt/lists/*
 
 # DooD 구조를 위함. Docker 그룹에 jenkins 유저 추가
-ARG DOCKER_GID=1001
+# TODO: 시스템마다 다르므로 하드코딩 수정할 것!
+ARG DOCKER_GID=984
 RUN groupadd -g ${DOCKER_GID} docker
 RUN usermod -aG docker jenkins
 
